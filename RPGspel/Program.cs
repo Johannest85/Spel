@@ -5,53 +5,15 @@ class Client
     static void Main(string[] args)
     {
         Character player = new Jedi("Yoda", new Alien());
+        Character player2 = new Jedi("Yoda2", new Elf());
+        
         Console.WriteLine($"{player.ToString()}");
+        Console.WriteLine($"{player2.ToString()}");
+
+        Tournament tournament = new Tournament(new List<Character> { player, player2 });
+        tournament.StartTournament();   
+
     }
 }
-
-/*
-Grundtanke:
-- Skapa en grundklass för karaktärer
-- Skapa en grundklass för raser
-- Skapa specifika raser som ärver från ras-klassen
-- Skapa specifika karaktärer som ärver från karaktär-klassen
-
-
-Karaktär grundklass: (i fil för grundklasser)
-Variabler:
-- Namn (låst efter skapande)
-- HP (ska kunna modifieras under spelets gång)
-- XP (ska kunna modifieras under spelets gång)
-- Ras från klass (låst efter skapande)
-- Meddelande onAttack
-- Meddelande onDefense
-- attackhMultipliers(styrka, smidighet, intelligens)
-- defenseMultipliers(styrka, smidighet, intelligens)
-
-Metoder:
-- OnAttack
-    - Multiplier för de olika kategorierna (styrka, smidighet och intelligens) som sedan ska multipliceras med rasens stats
-    - Meddelanden som ska skrivas ut beroende på kategori 
-- OnDefense
-    - Samma som OnAttack fast för försvar
-- ToString
-    - Skriver ut karaktärens namn, ras, HP och XP
-
-Ras grundklass: (i fil för grundklasser)
-Variabler:
-- Styrka (låst efter skapande)
-- Smidighet (låst efter skapande)
-- Intelligens (låst efter skapande)
-- Start HP (låst efter skapande)
-- En lista på firanden som rasen har när den vinner en strid (låst efter skapande)
-
-Specifika rasklasser: (lägg detta i egen fil)
-Variabler:
-- Fyll i alla värden från ras-klassen med specifika värden för rasen
-
-Specifika karaktärsklasser: (lägg detta i egen fil)
-Inputs:
-- Fyll i alla värden från karaktär-klassen med specifika värden för karaktären
-*/
 
 
